@@ -1,0 +1,64 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" name="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+			     <#input id="id" name="Id" underline="true"/>
+			     <#input id="centerId" name="中心ID" underline="true"/>
+			     <#input id="centerName" name="中心名称" underline="true"/>
+			     <#input id="employeeName" name="员工名称" underline="true"/>
+			     <#input id="jobNumber" name="工号" underline="true"/>
+			     <#input id="postCode" name="岗位编码" underline="true"/>
+			     <#input id="postName" name="岗位名称" underline="true"/>
+			     <#input id="orgCode" name="组织编码" underline="true"/>
+			     <#input id="organizationName" name="组织名称" underline="true"/>
+			     <#input id="classCode" name="班次编码" underline="true"/>
+			     <#input id="schedulingDate" name="排班时间" underline="true"/>
+			     <#input id="schedulingType" name="排班类型" underline="true"/>
+			     <#input id="position" name="仓位" underline="true"/>
+			     <#input id="positionCode" name="仓位编码" underline="true"/>
+			     <#input id="performanceType" name="绩效类型" underline="true"/>
+			     <#input id="performanceClass" name="绩效分类" underline="true"/>
+			     <#input id="unit" name="单价" underline="true"/>
+			     <#input id="operationVolume" name="操作量-数量（票）" underline="true"/>
+			     <#input id="personalOperationVolume" name="个人操作量" underline="true"/>
+			     <#input id="operationVolumeWeight" name="操作量-重量（顿）" underline="true"/>
+			     <#input id="scanType" name="扫描类型" underline="true"/>
+			     <#input id="gunLoginId" name="把枪账号" underline="true"/>
+			     <#input id="startTime" name="操作时间段开始时间" underline="true"/>
+			     <#input id="endTime" name="操作时间段结束时间" underline="true"/>
+			     <#input id="operationVolumeState" name="操作量计算状态（1已计算，0未计算）" underline="true"/>
+			     <#input id="workingState" name="上班状态" underline="true"/>
+			     <#input id="state" name="状态（1删除，0未删除）" underline="true"/>
+			     <#input id="createUser" name="添加人" underline="true"/>
+			     <#input id="createCode" name="添加人code" underline="true"/>
+			     <#input id="createDate" name="添加时间" underline="true"/>
+			     <#input id="modifyUser" name="修改人" underline="true"/>
+			     <#input id="modifyCode" name="修改人code" underline="true"/>
+			     <#input id="modifyDate" name="修改时间" underline="true"/>
+			     <#input id="nonWorkStartTime" name="非正常工作开始时间" underline="true"/>
+			     <#input id="nonWorkEndTime" name="非正常上班结束时间" underline="true"/>
+			     <#input id="lengthOfTime" name="时长" underline="true"/>
+                </div>
+
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="ZtoSchedulingManagerInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="ZtoSchedulingManagerInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+< src="${ctxPath}/static/modular/biz/ztoschedulingmanager/ztoschedulingmanager_info.js"></>
+@}

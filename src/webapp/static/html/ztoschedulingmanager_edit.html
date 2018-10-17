@@ -1,0 +1,64 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" name="${ztoschedulingmanager.id}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+			     <#input id="id" name="Id" underline="true" name="${ztoschedulingmanager.id}"/>
+			     <#input id="centerId" name="中心ID" underline="true" name="${ztoschedulingmanager.centerId}"/>
+			     <#input id="centerName" name="中心名称" underline="true" name="${ztoschedulingmanager.centerName}"/>
+			     <#input id="employeeName" name="员工名称" underline="true" name="${ztoschedulingmanager.employeeName}"/>
+			     <#input id="jobNumber" name="工号" underline="true" name="${ztoschedulingmanager.jobNumber}"/>
+			     <#input id="postCode" name="岗位编码" underline="true" name="${ztoschedulingmanager.postCode}"/>
+			     <#input id="postName" name="岗位名称" underline="true" name="${ztoschedulingmanager.postName}"/>
+			     <#input id="orgCode" name="组织编码" underline="true" name="${ztoschedulingmanager.orgCode}"/>
+			     <#input id="organizationName" name="组织名称" underline="true" name="${ztoschedulingmanager.organizationName}"/>
+			     <#input id="classCode" name="班次编码" underline="true" name="${ztoschedulingmanager.classCode}"/>
+			     <#input id="schedulingDate" name="排班时间" underline="true" name="${ztoschedulingmanager.schedulingDate}"/>
+			     <#input id="schedulingType" name="排班类型" underline="true" name="${ztoschedulingmanager.schedulingType}"/>
+			     <#input id="position" name="仓位" underline="true" name="${ztoschedulingmanager.position}"/>
+			     <#input id="positionCode" name="仓位编码" underline="true" name="${ztoschedulingmanager.positionCode}"/>
+			     <#input id="performanceType" name="绩效类型" underline="true" name="${ztoschedulingmanager.performanceType}"/>
+			     <#input id="performanceClass" name="绩效分类" underline="true" name="${ztoschedulingmanager.performanceClass}"/>
+			     <#input id="unit" name="单价" underline="true" name="${ztoschedulingmanager.unit}"/>
+			     <#input id="operationVolume" name="操作量-数量（票）" underline="true" name="${ztoschedulingmanager.operationVolume}"/>
+			     <#input id="personalOperationVolume" name="个人操作量" underline="true" name="${ztoschedulingmanager.personalOperationVolume}"/>
+			     <#input id="operationVolumeWeight" name="操作量-重量（顿）" underline="true" name="${ztoschedulingmanager.operationVolumeWeight}"/>
+			     <#input id="scanType" name="扫描类型" underline="true" name="${ztoschedulingmanager.scanType}"/>
+			     <#input id="gunLoginId" name="把枪账号" underline="true" name="${ztoschedulingmanager.gunLoginId}"/>
+			     <#input id="startTime" name="操作时间段开始时间" underline="true" name="${ztoschedulingmanager.startTime}"/>
+			     <#input id="endTime" name="操作时间段结束时间" underline="true" name="${ztoschedulingmanager.endTime}"/>
+			     <#input id="operationVolumeState" name="操作量计算状态（1已计算，0未计算）" underline="true" name="${ztoschedulingmanager.operationVolumeState}"/>
+			     <#input id="workingState" name="上班状态" underline="true" name="${ztoschedulingmanager.workingState}"/>
+			     <#input id="state" name="状态（1删除，0未删除）" underline="true" name="${ztoschedulingmanager.state}"/>
+			     <#input id="createUser" name="添加人" underline="true" name="${ztoschedulingmanager.createUser}"/>
+			     <#input id="createCode" name="添加人code" underline="true" name="${ztoschedulingmanager.createCode}"/>
+			     <#input id="createDate" name="添加时间" underline="true" name="${ztoschedulingmanager.createDate}"/>
+			     <#input id="modifyUser" name="修改人" underline="true" name="${ztoschedulingmanager.modifyUser}"/>
+			     <#input id="modifyCode" name="修改人code" underline="true" name="${ztoschedulingmanager.modifyCode}"/>
+			     <#input id="modifyDate" name="修改时间" underline="true" name="${ztoschedulingmanager.modifyDate}"/>
+			     <#input id="nonWorkStartTime" name="非正常工作开始时间" underline="true" name="${ztoschedulingmanager.nonWorkStartTime}"/>
+			     <#input id="nonWorkEndTime" name="非正常上班结束时间" underline="true" name="${ztoschedulingmanager.nonWorkEndTime}"/>
+			     <#input id="lengthOfTime" name="时长" underline="true" name="${ztoschedulingmanager.lengthOfTime}"/>
+                </div>
+
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="ZtoSchedulingManagerInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="ZtoSchedulingManagerInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+< src="${ctxPath}/static/modular/biz/ztoschedulingmanager/ztoschedulingmanager_info.js"></>
+@}
