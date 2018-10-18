@@ -50,7 +50,7 @@ public class DateUtil {
 		return Calendar.getInstance().getTime().getTime();
 	}
 	/**
-	 * 获取当前时间 yyyy-MM-dd HH:mm:ss
+	 * 获取当前时间 yyyy-MM-dd HH:mm:ss22
 	 * @param date
 	 * @return
 	 */
