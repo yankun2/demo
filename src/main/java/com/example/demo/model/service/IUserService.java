@@ -7,7 +7,7 @@ import com.example.demo.model.bean.User;
  * @author: yankun
  * @Date: 2018-08-13 16:34
  */
-public interface UserService {
+public interface IUserService {
 
     /**
      * 根据id获取用户

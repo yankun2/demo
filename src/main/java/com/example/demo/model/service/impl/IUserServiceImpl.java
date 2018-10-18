@@ -2,7 +2,7 @@ package com.example.demo.model.service.impl;
 
 import com.example.demo.model.bean.User;
 import com.example.demo.model.mapper.UserMapper;
-import com.example.demo.model.service.UserService;
+import com.example.demo.model.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -11,7 +11,7 @@ import tk.mybatis.mapper.entity.Example;
  * @author admin
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class IUserServiceImpl implements IUserService {
 
     @Autowired
     private UserMapper userMapper;

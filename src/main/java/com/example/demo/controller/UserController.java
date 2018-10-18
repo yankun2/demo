@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.enum2.SexEnum;
 import com.example.demo.model.bean.User;
-import com.example.demo.model.service.UserService;
+import com.example.demo.model.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -31,7 +31,7 @@ import java.util.Set;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private IUserService IUserService;
 
     /**
      * 获取用户
@@ -44,7 +44,7 @@ public class UserController {
     public void getUser(HttpServletRequest request, HttpServletResponse response){
         User user = new User();
         user.setId(111);
-        userService.getUserById(user);
+        IUserService.getUserById(user);
 
        //BeanCopier.create().copy();
     }
@@ -68,7 +68,7 @@ public class UserController {
 
         Object sex22 = request.getAttribute("sex2");
         user.setSex(SexEnum.byCode(sex2));
-       int i =  userService.saveUser(user);
+       int i =  IUserService.saveUser(user);
         System.out.println(i);
         return i+"";
     }
@@ -83,7 +83,7 @@ public class UserController {
     @RequestMapping(value = "findByUserName",method = RequestMethod.GET)
     public void findByUserName(HttpServletRequest request, HttpServletResponse response, @ApiIgnore @Valid User user){
 
-        userService.findByUserName(user.getUserName());
+        IUserService.findByUserName(user.getUserName());
     }
 
 
