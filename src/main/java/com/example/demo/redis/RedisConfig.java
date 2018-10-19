@@ -1,8 +1,5 @@
 package com.example.demo.redis;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +16,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -75,11 +71,16 @@ public class RedisConfig extends CachingConfigurerSupport {
         return builder.build();
     }
 
-    /**
-     * 以下两种redisTemplate自由根据场景选择
-     */
+  /*  *//**
+     * redisTemplate
+     * redisTemplate.opsForValue();//操作字符串
+     * redisTemplate.opsForHash();//操作hash
+     * redisTemplate.opsForList();//操作list
+     * redisTemplate.opsForSet();//操作set
+     * redisTemplate.opsForZSet();//操作有序set
+     *//*
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
+    public RedisTemplate<Object, Object> redisTemplate2(RedisConnectionFactory connectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory);
 
@@ -98,8 +99,50 @@ public class RedisConfig extends CachingConfigurerSupport {
         return template;
     }
 
+    *//**
+     * redisTemplate 添加了自定义序列化模块
+     * @param redisConnectionFactory
+     * @return
+     *//*
     @Bean
-    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory) {
+    public RedisTemplate<String, Object> redisTemplate3(RedisConnectionFactory redisConnectionFactory)
+    {
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        RedisObjectSerializer redisObjectSerializer = new RedisObjectSerializer();
+
+        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+        template.setConnectionFactory(redisConnectionFactory);
+        template.setKeySerializer(stringRedisSerializer);
+        template.setValueSerializer(redisObjectSerializer);
+        return template;
+    }
+*/
+    @Bean
+    @SuppressWarnings("rawtypes")
+    public RedisSerializer fastJson2JsonRedisSerializer() {
+        return new FastJson2JsonRedisSerializer<Object>(Object.class);
+    }
+
+    /**
+     * redisTemplate 添加了自定义序列化模块
+     * @param factory
+     * @param fastJson2JsonRedisSerializer
+     * @return
+     */
+    @Bean
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory, RedisSerializer fastJson2JsonRedisSerializer)
+    {
+        StringRedisTemplate template = new StringRedisTemplate(factory);
+
+        template.setValueSerializer(fastJson2JsonRedisSerializer);
+
+        template.afterPropertiesSet();
+        return template;
+    }
+
+
+    @Bean
+    public StringRedisTemplate stringRedisTemplate2(RedisConnectionFactory factory) {
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
         stringRedisTemplate.setConnectionFactory(factory);
         return stringRedisTemplate;

@@ -8,8 +8,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -23,6 +25,11 @@ public class ApplicationTests {
      */
     @Autowired
     private IRedisService redisService;
+
+
+    @Resource
+    private RedisTemplate<String,User> redisTemplate;
+
 
     @Test
     public void contextLoads() {
@@ -44,4 +51,20 @@ public class ApplicationTests {
     public void contextLoad() {
         redisService.set("aa", "12345");
     }
+
+    @Test
+    public void redis(){
+    /*    User user = new User();
+        user.setId(222);
+        redisTemplate.opsForValue().set("cc",user);*/
+
+        User user2 =  redisTemplate.opsForValue().get("cc");
+
+        System.out.println(JSONObject.toJSONString(user2)+"'22222222222");
+
+
+
+    }
+
+
 }
