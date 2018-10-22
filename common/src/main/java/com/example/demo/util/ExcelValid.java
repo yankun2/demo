@@ -1,7 +1,7 @@
 package com.example.demo.util;
 
 
-import com.example.demo.model.bean.User;
+import com.example.demo.bean.User;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

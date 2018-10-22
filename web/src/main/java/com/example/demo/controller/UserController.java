@@ -1,16 +1,20 @@
 package com.example.demo.controller;
 
+import com.example.demo.bean.Result;
 import com.example.demo.enum2.SexEnum;
-import com.example.demo.model.bean.User;
-import com.example.demo.model.service.IUserService;
+import com.example.demo.bean.User;
+import com.example.demo.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,12 +30,12 @@ import java.util.Set;
  */
 
 @Api(tags="测试类",value="测试类")
-@Controller
+@RestController
 @RequestMapping("user")
 public class UserController {
 
     @Autowired
-    private IUserService IUserService;
+    private IUserService userService;
 
     /**
      * 获取用户
@@ -39,12 +43,13 @@ public class UserController {
      * @param response
      */
     @ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer", paramType = "query")
+    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "Integer", paramType = "query")
     @RequestMapping(value = "getUser", method = RequestMethod.GET)
-    public void getUser(HttpServletRequest request, HttpServletResponse response){
+    public Result<User> getUser(HttpServletRequest request, HttpServletResponse response, @RequestParam Integer id){
         User user = new User();
-        user.setId(111);
-        IUserService.getUserById(user);
+        user.setId(id);
+        User userById = userService.getUserById(user);
+        return Result.success(userById);
 
        //BeanCopier.create().copy();
     }
@@ -68,7 +73,7 @@ public class UserController {
 
         Object sex22 = request.getAttribute("sex2");
         user.setSex(SexEnum.byCode(sex2));
-       int i =  IUserService.saveUser(user);
+       int i =  userService.saveUser(user);
         System.out.println(i);
         return i+"";
     }
@@ -83,7 +88,7 @@ public class UserController {
     @RequestMapping(value = "findByUserName",method = RequestMethod.GET)
     public void findByUserName(HttpServletRequest request, HttpServletResponse response, @ApiIgnore @Valid User user){
 
-        IUserService.findByUserName(user.getUserName());
+        userService.findByUserName(user.getUserName());
     }
 
 

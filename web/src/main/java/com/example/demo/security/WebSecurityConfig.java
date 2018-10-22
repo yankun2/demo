@@ -1,6 +1,6 @@
 //package com.example.demo.security;
 //
-//import com.example.demo.model.service.impl.CustomUserService;
+//import com.example.demo.service.impl.CustomUserService;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

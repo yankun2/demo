@@ -1,6 +1,6 @@
 package com.example.demo.advice;
 
-import com.example.demo.model.bean.Result;
+import com.example.demo.bean.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

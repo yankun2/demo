@@ -6,7 +6,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.example.demo.model.mapper")
+@MapperScan(basePackages = "com.example.demo.mapper")
 public class Application {
 
     public static void main(String[] args) {

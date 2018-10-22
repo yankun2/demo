@@ -1,6 +1,6 @@
 package com.example.demo.test;
 
-import com.example.demo.model.bean.User;
+import com.example.demo.bean.User;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;

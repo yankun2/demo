@@ -1,8 +1,8 @@
 package com.example.demo;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.model.bean.User;
-import com.example.demo.model.service.IRedisService;
+import com.example.demo.bean.User;
+import com.example.demo.service.IRedisService;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;

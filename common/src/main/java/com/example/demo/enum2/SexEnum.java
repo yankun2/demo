@@ -3,6 +3,10 @@ package com.example.demo.enum2;
 public enum SexEnum {
 
     /**
+     *-1, "无"
+     */
+    NONE(-1, "无"),
+    /**
      *0, "男"
      */
     MALE(0, "男"),

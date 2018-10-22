@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.enum2.SexEnum;
-import com.example.demo.model.bean.User;
-import com.example.demo.model.service.IUserService;
+import com.example.demo.bean.User;
+import com.example.demo.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
